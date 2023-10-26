@@ -103,14 +103,13 @@ for i in range(int(m)) :
     distance2 = intersection2.distance(slope_pairs[0])
     distance2 = distance2.evalf() 
 
-    pairs.append([line2,line4,abs(distance1-distance2)])
+    pairs.append([line2,line4,abs(distance1-distance2),distance2])
     
     line2 = []
     line4 = []
 
 # Ascending Sorting according to least difference between horizontal and vertical side of the square
 pairs.sort(key=lambda x: x[2])
-
 
 ######################################################################################################################
 
@@ -196,7 +195,7 @@ for i in range(int(n/2)) :
     distance2 = intersection2.distance(slope_pairs[0])
     distance2 = distance2.evalf() 
 
-    pairs1.append([line2,line4,abs(distance1-distance2)])
+    pairs1.append([line2,line4,abs(distance1-distance2),distance2])
     
     if (i==int(n/2)) :
         break
@@ -206,15 +205,20 @@ for i in range(int(n/2)) :
 # Sorting according to least difference between horizontal and vertical side of the square
 pairs1.sort(key=lambda x: x[2])
 
-
+print(pairs1[0])
 # Calculating the distance between the horizontal lines of the squares
-distance_1lobe = math.dist([pairs1[0][1][0][0],pairs1[0][1][0][1]],[pairs1[0][1][1][0],pairs1[0][1][1][1]])
+#distance_1lobe = math.dist([pairs1[0][1][0][0],pairs1[0][1][0][1]],[pairs1[0][1][1][0],pairs1[0][1][1][1]])
+#distance_lobe = math.dist([pairs[0][1][0][0],pairs[0][1][0][1]],[pairs[0][1][1][0],pairs[0][1][1][1]])
+#distance_lobe = math.dist(pairs[0][1][0][0],pairs[0][1][0][1])
 
-distance_lobe = math.dist([pairs[0][1][0][0],pairs[0][1][0][1]],[pairs[0][1][1][0],pairs[0][1][1][1]])
+print(pairs1[0][3])
+print(pairs[0][3])
 
+distance_1lobe = pairs1[0][3]
+distance_lobe = pairs[0][3]
 
 # Comparing and plotting the square with the lowest side length
-if (distance_1lobe < distance_lobe) :
+if (distance_lobe < distance_1lobe) :
     # For plotting points 1st half
     x_axis_ver=pairs1[0][0][0][0]
     y_axis_ver=pairs1[0][0][0][1]
@@ -233,9 +237,9 @@ if (distance_1lobe < distance_lobe) :
     plt.plot([slope_pairs[0][0], x_end3], [slope_pairs[0][1], y_end3], marker="o")
     label_x = (x_axis_hor + x_axis_hor_end) / 4
     label_y = (y_axis_hor + y_axis_hor_end) / 2
-    distance_1lobe = "{:.2f}".format(distance_1lobe)
+    distance_lobe = "{:.2f}".format(distance_lobe)
     # Add the distance label above the line segment
-    plt.text(label_x, label_y, f'dx={distance_1lobe}', ha='center', va='bottom')
+    plt.text(label_x, label_y, f'dx={distance_lobe}', ha='center', va='bottom')
 else :
     x_axis_ver=pairs[0][0][0][0]
     y_axis_ver=pairs[0][0][0][1]
@@ -249,14 +253,14 @@ else :
 
     # PLotting Square    
     plt.plot([x_axis_ver,x_axis_ver_end], [y_axis_ver,y_axis_ver_end], marker="o")
-    plt.plot([x_axis_hor, x_axis_hor_end], [y_axis_hor, y_axis_hor_end], marker="o")
-    plt.plot([slope_pairs[0][0], x_end1], [slope_pairs[0][1], y_end1], marker="o")
-    plt.plot([slope_pairs[0][0], x_end2], [slope_pairs[0][1], y_end2], marker="o")
+    plt.plot([x_axis_hor,x_axis_hor_end], [y_axis_hor,y_axis_hor_end], marker="o")
+    plt.plot([slope_pairs[0][0], x_end4], [slope_pairs[0][1], y_end4], marker="o")    
+    plt.plot([slope_pairs[0][0], x_end3], [slope_pairs[0][1], y_end3], marker="o")
     label_x = (x_axis_hor + x_axis_hor_end) / 4
     label_y = (y_axis_hor + y_axis_hor_end) / 2
-    distance_lobe = "{:.2f}".format(distance_lobe)
+    distance_1lobe = "{:.2f}".format(distance_1lobe)
     # Add the distance label above the line segment
-    plt.text(label_x, label_y, f'dx={distance_lobe}', ha='center', va='bottom')
+    plt.text(label_x, label_y, f'dx={distance_1lobe}', ha='center', va='bottom')
     
     
     
@@ -266,6 +270,8 @@ else :
 #plt.scatter(qb_qX, qb_qY, marker="o")
 plt.plot(q_qbX, q_qbY, qb_qX, qb_qY)
 
+
+plt.xlabel("in V ------------------------->")
 plt.gca().set_aspect('equal')   # Sets the graph's aspect ratio to 1:1
 plt.title("Butterfly graph for finding Static Noise Margin for 6-T SRAM")
 plt.show()
