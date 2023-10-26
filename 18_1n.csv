@@ -1,0 +1,24 @@
+,Parameter,Nominal,,,,,,C0_0,C0_1,C0_2,C0_3,C0_4,C0_5
+,bip.scs,tm,,,,,,tm,tm,tm,tm,tm,tm
+,cap.scs,tm,,,,,,tm,tm,tm,tm,tm,tm
+,config.scs,default,,,,,,default,default,default,default,default,default
+,dio.scs,tm,,,,,,tm,tm,tm,tm,tm,tm
+,mos.scs,tm,,,,,,wp,wp,wp,ws,ws,ws
+,param.scs,3s,,,,,,3s,3s,3s,3s,3s,3s
+,res.scs,tm,,,,,,tm,tm,tm,tm,tm,tm
+,temperature,27,,,,,,-40,27,85,-40,27,85
+
+Test,Output,Nominal,Spec,Weight,Pass/Fail,Min,Max,C0_0,C0_1,C0_2,C0_3,C0_4,C0_5
+Rudransh:SRAM_16_8_tb_3:1,/V9/MINUS,,,,,,,,,,,,
+Rudransh:SRAM_16_8_tb_3:1,/V3/MINUS,,,,,,,,,,,,
+Rudransh:SRAM_16_8_tb_3:1,Read 1->0,-1.991e-9,,,,-47.19e-9,-895.9e-12,-47.19e-9,-2.489e-9,-1.953e-9,-2.016e-9,-1.388e-9,-895.9e-12
+Rudransh:SRAM_16_8_tb_3:1,Read 0->1,-6.521e-9,,,,-30.19e-9,-5.106e-9,-8.199e-9,-29.22e-9,-30.19e-9,-5.106e-9,-5.327e-9,-5.546e-9
+Rudransh:SRAM_16_8_tb_3:1,Precharge,-18.19e-9,,,,-18.34e-9,-18.04e-9,-18.34e-9,-18.3e-9,-18.28e-9,-18.18e-9,-18.11e-9,-18.04e-9
+Rudransh:SRAM_16_8_tb_3:1,Write 1->0,857.9e-12,,,,765.3e-12,983.6e-12,765.3e-12,791.8e-12,817.1e-12,900.2e-12,944.4e-12,983.6e-12
+Rudransh:SRAM_16_8_tb_3:1,Write 0->1,902e-12,,,,798.3e-12,1.038e-9,798.3e-12,826e-12,850.4e-12,953.7e-12,999.8e-12,1.038e-9
+Rudransh:SRAM_16_8_tb_3:1,VDD pwr draw,189.3e-6,,,,117.1e-6,387.7e-6,283.2e-6,351.3e-6,387.7e-6,117.1e-6,126.7e-6,145e-6
+Rudransh:SRAM_16_8_tb_3:1,vdd! pwr draw,67.25e-6,,,,66.81e-6,68.81e-6,66.94e-6,66.81e-6,67.05e-6,68.81e-6,68.51e-6,68.73e-6
+Rudransh:SRAM_16_8_tb_3:1,IDC_pwr,6.601e-6,,,,6.053e-6,7.17e-6,6.294e-6,6.166e-6,6.053e-6,7.17e-6,7.049e-6,6.944e-6
+Rudransh:SRAM_16_8_tb_3:1,Total pwr - IDC_pwr,544.9e-6,,,,243.8e-6,1.138e-3,871e-6,1.138e-3,1.025e-3,243.8e-6,245.3e-6,308.7e-6
+Rudransh:SRAM_16_8_tb_3:1,Total power draw,551.5e-6,,,,250.9e-6,1.144e-3,877.3e-6,1.144e-3,1.031e-3,250.9e-6,252.3e-6,315.7e-6
+
